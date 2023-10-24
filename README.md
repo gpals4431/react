@@ -1,1 +1,1 @@
-###React 공부중인 repository입니다.
+### React 공부중인 repository입니다.
