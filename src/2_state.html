@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <!-- ReactDOM: React element를 가져다 HTML로 바꿔줌-->
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+   <script type="text/babel">
+        const root=document.getElementById("root");
+        
+        function App() {
+            const [counter, modifier] = React.useState(0);
+            const onClick = () => {
+                counter = counter +1 ;
+                console.log(counter);
+            };
+            return(
+                <div>
+                    <h3>Total clicks: {counter}</h3>
+                    <button onClick={onClick}>Click me</button>
+                </div>
+            );
+        }
+        ReactDOM.render(<App />, root);
+
+
+        //10/25 state: 데이터가 저장되는 곳
+        //바닐라js와는 다르게 오직 ui에서만 바뀐부분만 업데이트해줌 바닐라는 div나 button 과 같이 다른 element함께 업데이트됨
+
+    </script> 
+</html>
