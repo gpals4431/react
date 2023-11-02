@@ -13,9 +13,12 @@
         const root=document.getElementById("root");
         
         function App() {
-            const [counter, setCounter] = React.useState(0);
+            const [counter, setCounter] = React.useState(0);//setCounter = modifier함수: state, 즉 어플리케이션의 데이터를 바꿀때 컴포넌트는 새로운 값을 가지고 리렌더링 됨
             const onClick = () => {
-                setCounter(counter+1);
+                //setCounter(counter+1);//클릭이벤트 발생시 modifier
+                
+                //함수전달하기
+                setCounter((current)=> current+1);//current=현재값에서 변경하고 싶은 값
             };
             return(
                 <div>
