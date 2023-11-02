@@ -51,7 +51,49 @@
             );
         }
     function KmToMiles() {
-        return <h3>KM 2 M </h3>
+        const [km, setKm] = React.useState("0");
+        const [flipped, setFlipped] = React.useState(false);
+        const onKmChange = (event) => {
+            setKm(event.target.value);
+        }
+        const reset = () => setKm(0);
+        const onFlip = () => {
+                reset();
+                setFlipped((current) => !current);
+            }   
+        return (
+            <div>
+                <h3>KM 2 M </h3>
+                    <div> 
+                    <label for="km">Km</label>
+                    <input 
+                        value ={flipped ? km*1.609 : km}
+                        placeholder="Km" 
+                        type="number"
+                        id="Km"
+                        onChange={onKmChange}
+                        disabled={flipped}
+
+                    />
+                    <h4>you want to convert {km}</h4>
+                    <label for="Mile">Mile</label>
+                    <input 
+                        value={flipped ? km : km/ 1.609}     
+                        placeholder="Mile"  
+                        id="Mile"
+                        type="number"
+                        onChange={onKmChange}
+                        disabled={!flipped}
+
+                    />
+                </div>
+                <button onClick={reset}>Reset</button>
+                <button onClick={onFlip}>flip</button>
+
+                
+            </div>
+
+        );
     }
     function App() {
         const [index , setIndex] = React.useState("0");//그냥 0 으로 작성하면 작동 x
